@@ -6,3 +6,4 @@ scikit-image
 pyvista
 nibabel
 bruker2nifti
+brukerapi

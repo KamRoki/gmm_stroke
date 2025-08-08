@@ -110,7 +110,7 @@ ylabel(cb, '[mm^2/s]');
 title('Diffusion Map Single Slice');
 
 
-return
+
 
 % Diffusuin values extraction
 diff_vals_non = ADC_map(:);
