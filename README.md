@@ -30,7 +30,7 @@ This approach is original and authored by me (Kamil Stachurski), and it forms an
 * Could enhance treatment decision-making in acute ischemic stroke by providing fast and reliable lesion maps
 
 
-## Pipeline Overview
+## 🧠 Pipeline Overview
 1. Data Import - Bruker or NIfTI diffusion datasets
 2. Brain Extraction - Apply precomputed brain masks
 3. ADC Map Calculation - Convert DWI to ADC values, removing negative artifacts
