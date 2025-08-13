@@ -39,13 +39,28 @@ This approach is original and authored by me (Kamil Stachurski), and it forms an
 
 
 ## 📦 Installation
+Clone the repository and install it in editable mode:
 ```bash
 git clone https://github.com/KamRoki/gmm_stroke.git
 cd gmm_stroke
+```
+
+I recommend creating a virtual environment before installing:
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
-python3 -m pip install -r requirements.txt
-python3 main.py
+```
+
+Install tool in editable mode:
+```bash
+pip install -e .
+```
+
+
+## 🚀 Usage
+Run the full ischemic lesion detection pipeline directly from the terminal:
+```bash
+gmm_stroke_predict -data /path/to/bruker/2dseq -mask /path/to/brain_mask.mat
 ```
 
 
