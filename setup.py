@@ -8,14 +8,14 @@ setup(
     packages=find_packages(where="."),
     python_requires=">=3.9",
     install_requires=[
-        "numpy",
-        "scipy",
-        "scikit-learn",
-        "matplotlib",
-        "scikit-image",
-        "pyvista",
-        "nibabel",
-        "brukerapi",
+        "numpy==2.3.2",
+        "scipy==1.16.1",
+        "scikit-learn==1.7.1",
+        "matplotlib==3.10.5",
+        "scikit-image==0.25.2",
+        "pyvista==0.46.1",
+        "nibabel==5.3.2",
+        "brukerapi==0.1.9",
     ],
     entry_points={
         "console_scripts": [
