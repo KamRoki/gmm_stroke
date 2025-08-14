@@ -54,7 +54,7 @@ def main():
     plot_3d_ischemia(diff_img_masked, ADC_map, gmm)
     
     print('[INFO] Calculating Stroke Volume')
-    calculate_stroke_volume(ADC_map, gmm, spacing, brain_mask = brain_mask)
+    calculate_stroke_volume(ADC_map, gmm, brain_mask = brain_mask)
     
 
 if __name__ == '__main__':

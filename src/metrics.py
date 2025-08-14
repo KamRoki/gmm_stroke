@@ -11,7 +11,6 @@ def _voxel_mm3(spacing_mm: tuple[float, float, float]) -> float:
 def calculate_stroke_volume(
     adc_map: np.ndarray,
     gmm: sklearn.mixture.GaussianMixture,
-    spacing_mm: tuple[float, float, float],
     brain_mask: np.ndarray | None = None
 ) -> float:
     '''
@@ -21,6 +20,11 @@ def calculate_stroke_volume(
         adc_use = adc_map * brain_mask
     else:
         adc_use = adc_map
+        
+    dx = input('X Resolution [mm]: ')
+    dy = input('Y Resolution [mm]: ')
+    dz = input('Z Resolution [mm]: ')
+    spacing_mm = tuple((dx, dy, dz))
         
     means = gmm.means_.ravel()
     ischemic_class = int(np.argmin(means))
