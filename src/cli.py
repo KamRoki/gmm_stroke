@@ -5,6 +5,7 @@ from src.preprocessing import apply_mask
 from src.adc import compute_adc
 from src.modeling import fit_gmm_stroke
 from src.visualization import plot_gmm_histogram, plot_3d_ischemia
+from src.metrics import calculate_stroke_volume
 
 
 def main():
@@ -30,6 +31,7 @@ def main():
     diff_img, bvals = load_bruker_diffusion(args.data_path)
     brain_mask = load_mat_mask(args.mask_path)
     diff_img_masked = apply_mask(diff_img, brain_mask)
+    spacing = (0.267, 0.333, 0.500)
     
     print('[INFO] Computing ADC map...')
     ADC_map = compute_adc(diff_img, bvals, brain_mask)
@@ -50,6 +52,9 @@ def main():
     
     print('[INFO] Visulizing 3D of ischemia')
     plot_3d_ischemia(diff_img_masked, ADC_map, gmm)
+    
+    print('[INFO] Calculating Stroke Volume')
+    calculate_stroke_volume(ADC_map, gmm, brain_mask = brain_mask)
     
 
 if __name__ == '__main__':

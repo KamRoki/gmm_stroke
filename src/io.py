@@ -1,6 +1,7 @@
 # Functions which reads Bruker data
 # (c) 2025 Kamil Stachurski
 
+
 import numpy as np
 import scipy.io as sio
 
@@ -54,3 +55,4 @@ def load_mat_mask(mat_path, var_name = 'brain_mask'):
         raise KeyError(f"No variable '{var_name}' in file {mat_path}")
     
     return mat[var_name].astype(bool)
+

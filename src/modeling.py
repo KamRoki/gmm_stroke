@@ -19,22 +19,22 @@ def fit_gmm_stroke(
     value_range: Tuple[float, float] = (2e-4, 1.4e-3)
 ) -> Tuple[GaussianMixture, Dict]:
     '''
-    Fit a Gaussian Mixture Model (GMM) to ADC values (in mm²/s) from an already extracted brain region.    
+    Fit a Gaussian Mixture Model (GMM) to ADC values (in mm2/s) from an already extracted brain region.    
     
     This function:
     1. Flattens the ADC map to 1D values.
-    2. Filters values within a specified range (default: 0.0002–0.0014 mm²/s).
-    3. Converts units to mm²/s × 1e-3 for numerical stability in EM fitting.
+    2. Filters values within a specified range (default: 0.0002–0.0014 mm2/s).
+    3. Converts units to mm2/s * 1e-3 for numerical stability in EM fitting.
     4. Initializes GMM parameters (means, weights).
     5. Fits the GMM and returns both the trained model and diagnostic information.
     
     Args:
         adc_map : np.ndarray
-            ADC map (already masked to brain region) in mm²/s.
+            ADC map (already masked to brain region) in mm2/s.
         n_components : int
             Number of Gaussian components to fit.
         means_init_mm : tuple of floats
-            Initial means for GMM components, in mm²/s × 1e-3.
+            Initial means for GMM components, in mm2/s * 1e-3.
         weights_init : tuple of floats
             Initial weights for GMM components.
         covariance_type : str
@@ -46,7 +46,7 @@ def fit_gmm_stroke(
         random_state : int
             Random seed for reproducibility.
         value_range : tuple of floats
-            Lower and upper bounds for ADC values (in mm²/s) to include in fitting.
+            Lower and upper bounds for ADC values (in mm2/s) to include in fitting.
             
     Returns:
         gmm : GaussianMixture
@@ -54,9 +54,9 @@ def fit_gmm_stroke(
         info : dict
             Dictionary containing:
                 - n_samples: number of samples used in fitting
-                - range_used_mm2s: (lower, upper) ADC range in mm²/s
-                - means_x1e3: fitted means in mm²/s × 1e-3
-                - vars_x1e3: fitted variances in mm²/s × 1e-3
+                - range_used_mm2s: (lower, upper) ADC range in mm2/s
+                - means_x1e3: fitted means in mm2/s * 1e-3
+                - vars_x1e3: fitted variances in mm2/s * 1e-3
                 - weights: fitted mixture weights
     '''
     
