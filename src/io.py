@@ -1,6 +1,7 @@
 # Functions which reads Bruker data
 # (c) 2025 Kamil Stachurski
 
+
 import numpy as np
 import scipy.io as sio
 

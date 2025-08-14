@@ -1,4 +1,4 @@
-# Functions which calculates ADC diffusion 
+# Functions which calculate ADC diffusion 
 # (c) 2025 Kamil Stachurski
 
 
@@ -31,7 +31,7 @@ def compute_adc(diff_img: np.ndarray,
     bvals = np.array(bvals,
                      dtype = np.float32)
     
-    # Find b0 and A0 
+    # Find b0 and A0 image
     b0_idx = np.argmin(bvals)
     A0 = diff_img[..., b0_idx]
     

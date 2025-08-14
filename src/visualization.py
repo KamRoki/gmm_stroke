@@ -15,15 +15,13 @@ def plot_gmm_histogram(
     adc_map: np.ndarray,
     model: GaussianMixture,
     lower_bound: float = 0.2,
-    upper_bound: float = 1.4,
-):
+    upper_bound: float = 1.4):
     
     lower_diff_threshold = lower_bound * 1e-3
     upper_diff_threshold = upper_bound * 1e-3
     
     adc_vals = adc_map[
-        (adc_map >= lower_diff_threshold) & (adc_map <= upper_diff_threshold)
-    ]
+        (adc_map >= lower_diff_threshold) & (adc_map <= upper_diff_threshold)]
     
     counts, bins, patches = plt.hist(adc_vals * 1e3,
                                      bins = np.arange(lower_bound, upper_bound, 0.01),
@@ -66,7 +64,7 @@ def plot_gmm_histogram(
              linewidth = 3,
              label = 'Total GMM Fit')
     
-    plt.xlabel('ADC Values (mm²/s × 1e-3)')
+    plt.xlabel('ADC Values (mm2/s * 1e-3)')
     plt.ylabel('Count')
     plt.title('ADC Histogram with Fitted Gaussian Mixture Model')
     plt.legend()
@@ -81,8 +79,8 @@ def plot_3d_ischemia(
     adc_map: np.ndarray,
     model: GaussianMixture,
     confidence: float = 0.7,
-    spacing: Tuple[float, float, float] = (0.267, 0.333, 0.5)
-):
+    spacing: Tuple[float, float, float] = (0.267, 0.333, 0.5)):
+    
     X_all_mm = (adc_map * 1e3).reshape(-1, 1)
     probs = model.predict_proba(X_all_mm)
     ischemic_class = np.argmin(model.means_.ravel())
@@ -98,7 +96,7 @@ def plot_3d_ischemia(
     b0 /= (b0.max() + 1e-12)
     mask_vis = ischemia_mask.astype(np.uint8)
     
-    origin = (0.0, 0.0, 0.0)
+    # origin = (0.0, 0.0, 0.0)
     nx, ny, nz = b0.shape
     
     grid = pv.StructuredGrid()
