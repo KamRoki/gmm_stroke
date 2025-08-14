@@ -54,3 +54,4 @@ def load_mat_mask(mat_path, var_name = 'brain_mask'):
         raise KeyError(f"No variable '{var_name}' in file {mat_path}")
     
     return mat[var_name].astype(bool)
+
