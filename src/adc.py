@@ -14,7 +14,7 @@ def compute_adc(diff_img: np.ndarray,
     Args:
         diff_img (np.ndarray): Diffusion-weighted images, shape (x, y, z, n_bvals)
         bvals (np.ndarray): Array of b-values (s/mm²)
-        brain_mask (np.ndarray): Binary mask of brain area, shape (x, y, z)
+        brain_mask (np.ndarray): Binary mask of brain area created in MATLAB, shape (x, y, z)
         
     Returns:
         np.ndarray: ADC map, shape (x, y, z)

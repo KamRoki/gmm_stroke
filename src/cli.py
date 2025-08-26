@@ -31,7 +31,6 @@ def main():
     diff_img, bvals = load_bruker_diffusion(args.data_path)
     brain_mask = load_mat_mask(args.mask_path)
     diff_img_masked = apply_mask(diff_img, brain_mask)
-    spacing = (0.267, 0.333, 0.500)
     
     print('[INFO] Computing ADC map...')
     ADC_map = compute_adc(diff_img, bvals, brain_mask)
@@ -41,9 +40,9 @@ def main():
     gmm, info = fit_gmm_stroke(ADC_brain)
     
     print('\n===== GMM PARAMETERS =====')
-    means = info["means_x1e3"]     # w mm²/s × 1e-3
-    vars_ = info["vars_x1e3"]      # wariancje w mm²/s × 1e-3
-    weights = info["weights"]
+    means = info['means_x1e3']     # w mm2/s * 1e-3
+    vars_ = info['vars_x1e3']      # variances w mm2/s * 1e-3
+    weights = info['weights']
     for i, (mu, var, w) in enumerate(zip(means, vars_, weights), start=1):
         print(f"Component {i}: μ={mu:.3f} (×1e-3 mm²/s), σ={np.sqrt(var):.3f}, w={w:.3f}")
         
